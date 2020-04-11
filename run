@@ -1,13 +1,9 @@
 #!/usr/bin//env php
 <?php
 
+include "src/Dates/BirthDays.php";
 $birthdate = "1993-03-19";
-$todaydate = date("Y-m-d");
+$days = new \Gusakov\Dates\BirthDays($birthdate);
 
-$birthTime = strtotime($birthdate);
-$todayTime = strtotime($todaydate);
-
-$totalsecs = $todayTime - $birthTime;
-$totalDays = floor($totalsecs / 3600 / 24);
-
+$totalDays = $days ->findTotalDays();
 echo "$birthdate : $totalDays\n";
